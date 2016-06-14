@@ -1,0 +1,58 @@
+package com.ninart.controllers;
+
+import static org.hamcrest.Matchers.hasItems;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.servlet.view.InternalResourceView;
+
+import com.ninart.models.Child;
+import com.ninart.repository.IChildRepository;
+
+public class ChildControllerTest {
+	
+	
+	@InjectMocks
+	ChildController controller;
+	
+	@Mock
+	IChildRepository repository;
+	
+	@Before
+	public void setUp(){
+		controller = new ChildController();
+		
+		MockitoAnnotations.initMocks(this);
+	}
+	
+	@Test
+	public void testChildHome() throws Exception{
+		List<Child> children = new ArrayList<Child>();
+		when(repository.findAll()).thenReturn(children);
+		
+		MockMvc mockMvc = standaloneSetup(controller)
+				.setSingleView(new InternalResourceView("doesn't matter"))
+				.build();
+		
+		mockMvc
+			.perform(get("/"))
+			.andExpect(view().name("home"));
+		
+		mockMvc.perform(get("/"))
+		.andExpect(view().name("home"))
+		.andExpect(model().attributeExists("children"))
+		.andExpect(model().attribute("children", hasItems(children.toArray())));
+	}
+}

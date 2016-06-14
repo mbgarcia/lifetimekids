@@ -6,14 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.ninart.repository.ChildRepository;
+import com.ninart.repository.IChildRepository;
 
 @Controller
 @RequestMapping("/")
 public class ChildController {
 	
 	@Autowired
-	public ChildRepository childRepository;
+	public IChildRepository childRepository;
 		
 	@RequestMapping(method=RequestMethod.GET)
 	public String all(Model model){
