@@ -9,7 +9,15 @@
 </head>
 <body>
 	<h1>Welcome to LifeTimeKids</h1>
-		
+	
+	<h3>Crianças cadastradas</h3>
+	<c:forEach items="${children}" var="child">
+		<li>
+			<div>
+				<span>${child.name}</span>
+			</div>
+		</li>
+	</c:forEach>
 </body>
 
 </html>

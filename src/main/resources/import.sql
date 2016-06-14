@@ -1,0 +1,1 @@
+insert into child (name, birthday) values ('Ayrton Senna', '1960-03-21')
