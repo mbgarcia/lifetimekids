@@ -3,18 +3,12 @@ package com.ninart.controllers;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ninart.models.Child;
@@ -22,14 +16,7 @@ import com.ninart.repository.IChildRepository;
 
 @Controller
 @RequestMapping("/")
-public class ChildController {
-	
-	protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		CustomDateEditor editor = new CustomDateEditor(dateFormat, true);
-		binder.registerCustomEditor(Date.class, editor);
-	}
-	 
+public class ChildController {	
 	@Autowired
 	public IChildRepository repository;
 		
