@@ -7,6 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Child {
@@ -15,10 +20,12 @@ public class Child {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	public Long id;
 	
-	@Column
+	@NotBlank
+	@Size(max=40)
 	public String name;
 	
-	@Column
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@NotNull
 	public Date birthday;
 
 	public Long getId() {

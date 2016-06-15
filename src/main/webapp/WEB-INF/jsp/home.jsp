@@ -5,7 +5,7 @@
 
 <html lang="en">
 <head>
-	<title>Tors</title>
+	<title>LifeTimeKids</title>
 </head>
 <body>
 	<h1>Welcome to LifeTimeKids</h1>
@@ -15,6 +15,7 @@
 		<li>
 			<div>
 				<span>${child.name}</span>
+				<span>${child.birthday}</span>
 			</div>
 		</li>
 	</c:forEach>
