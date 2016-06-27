@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h1>New Child</h1>
-	<sf:form method="POST" action="/save" commandName="child">
+	<sf:form method="POST" action="/child/save" commandName="child">
 		<sf:errors path="*" element="div" cssClass="error"/>
 		<div>
 			<sf:label path="name" cssErrorClass="error">Nome</sf:label> 

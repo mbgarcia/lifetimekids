@@ -10,15 +10,11 @@
 <body>
 	<h1>Welcome to LifeTimeKids</h1>
 	
-	<h3>Crianças cadastradas</h3>
-	<c:forEach items="${children}" var="child">
-		<li>
-			<div>
-				<a href="/child/show/${child.id}">${child.name}</a>
-				<span>${child.birthday}</span>
-			</div>
-		</li>
-	</c:forEach>
+	<h3>Criança cadastrada</h3>
+	<div>
+		<span>${child.name}</span>
+		<span>${child.birthday}</span>
+	</div>
 </body>
 
 </html>

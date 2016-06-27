@@ -9,13 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ninart.models.Child;
 import com.ninart.repository.IChildRepository;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/child")
 public class ChildController {	
 	@Autowired
 	public IChildRepository repository;
@@ -33,12 +34,19 @@ public class ChildController {
 		}
 		
 		repository.save(child);
-		return "redirect:/";
+		return "redirect:/child";
 	}
 	
 	@RequestMapping(value="/new", method=GET)
 	public String form(Model model){
 		model.addAttribute("child", new Child());
 		return "form";
+	}
+	
+	@RequestMapping(value="/show/{id}", method=GET)
+	public String show(@PathVariable long id, Model model){
+		Child child = repository.findOne(id);
+		model.addAttribute("child", child);
+		return "show";
 	}
 }
