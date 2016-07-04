@@ -1,14 +1,19 @@
 package com.ninart.controllers;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ninart.models.Child;
+import com.ninart.models.Event;
 import com.ninart.repository.IEventRepository;
 
 @Controller
@@ -28,7 +33,16 @@ public class EventController {
 	}
 	
 	@RequestMapping(value="/new", method=GET)
-	public String form(){
+	public String form(Model model){
+		model.addAttribute("event", new Event());
 		return "events/form";
+	}
+	
+	@RequestMapping(value="/save", method=POST)
+	public String save(@Valid Event event, Errors errors){
+		if (errors.hasErrors()){
+			return "events/form"; 
+		}
+		return "";
 	}
 }

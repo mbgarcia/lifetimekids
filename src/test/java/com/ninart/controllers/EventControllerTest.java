@@ -2,7 +2,9 @@ package com.ninart.controllers;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
 import java.util.ArrayList;
@@ -57,4 +59,15 @@ public class EventControllerTest {
 		).andExpect(view().name("events/form"));
 	}
 	
+	@Test
+	public void testSaveEventWithErrors() throws Exception{
+		MockMvc mockMvc = standaloneSetup(controller).build();
+		
+		mockMvc.perform(
+			post("/child/1/events/save")
+		)
+		.andExpect(model().hasErrors())
+		.andExpect(model().attributeHasFieldErrors("event", "message", "date"))
+		.andExpect(view().name("events/form"));
+	}	
 }
