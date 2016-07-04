@@ -1,9 +1,9 @@
 package com.ninart.controllers;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,4 +47,14 @@ public class EventControllerTest {
 			get("/child/1/events")
 		).andExpect(view().name("events/index"));
 	}
+	
+	@Test
+	public void testShowFormEvent() throws Exception{
+		MockMvc mockMvc = standaloneSetup(controller).build();
+		
+		mockMvc.perform(
+			get("/child/1/events/new")
+		).andExpect(view().name("events/form"));
+	}
+	
 }

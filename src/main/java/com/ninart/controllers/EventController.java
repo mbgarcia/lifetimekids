@@ -26,4 +26,9 @@ public class EventController {
 		
 		return "events/index";
 	}
+	
+	@RequestMapping(value="/new", method=GET)
+	public String form(){
+		return "events/form";
+	}
 }
