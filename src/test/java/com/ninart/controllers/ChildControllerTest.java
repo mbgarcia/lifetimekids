@@ -95,7 +95,7 @@ public class ChildControllerTest {
 				.param("name", "Someone")
 				.param("birthday", "01/01/2016")
 			)
-			.andExpect(redirectedUrl("/"));
+			.andExpect(redirectedUrl("/child"));
 	}
 	
 	@Test
