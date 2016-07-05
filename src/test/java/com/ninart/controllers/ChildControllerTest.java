@@ -49,7 +49,7 @@ public class ChildControllerTest {
 				.build();
 		
 		mockMvc.perform(get("/child"))
-		.andExpect(view().name("home"))
+		.andExpect(view().name("children/index"))
 		.andExpect(model().attributeExists("children"))
 		.andExpect(model().attribute("children", hasItems(children.toArray())));
 	}
@@ -59,7 +59,7 @@ public class ChildControllerTest {
 		MockMvc mockMvc = standaloneSetup(controller).build();
 		
 		mockMvc.perform(get("/child/new"))
-			.andExpect(view().name("form"))
+			.andExpect(view().name("children/form"))
 			.andExpect(model().attributeExists("child"));
 	}
 	
@@ -70,7 +70,7 @@ public class ChildControllerTest {
 		mockMvc.perform(post("/child/save"))
 			.andExpect(model().hasErrors())
 			.andExpect(model().attributeHasFieldErrors("child", "name", "birthday"))
-			.andExpect(view().name("form"));
+			.andExpect(view().name("children/form"));
 	}
 	
 	@Test
@@ -80,7 +80,7 @@ public class ChildControllerTest {
 		mockMvc.perform(post("/child/save").param("name", "Someone"))
 		.andExpect(model().hasErrors())
 		.andExpect(model().attributeHasFieldErrors("child", "birthday"))
-		.andExpect(view().name("form"));
+		.andExpect(view().name("children/form"));
 	}
 	
 	@Test
@@ -108,6 +108,6 @@ public class ChildControllerTest {
 		mockMvc.perform(
 				get("/child/show/1")
 			)
-			.andExpect(view().name("show"));
+			.andExpect(view().name("children/show"));
 	}
 }

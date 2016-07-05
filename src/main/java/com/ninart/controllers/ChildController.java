@@ -24,13 +24,13 @@ public class ChildController {
 	@RequestMapping(method=GET)
 	public String all(Model model){
 		model.addAttribute("children", repository.findAll());
-		return "home";
+		return "children/index";
 	}
 	
 	@RequestMapping(value="/save", method=POST)
 	public String save(@Valid Child child, Errors errors){
 		if (errors.hasErrors()){
-			return "form";
+			return "children/form";
 		}
 		
 		repository.save(child);
@@ -40,13 +40,13 @@ public class ChildController {
 	@RequestMapping(value="/new", method=GET)
 	public String form(Model model){
 		model.addAttribute("child", new Child());
-		return "form";
+		return "children/form";
 	}
 	
 	@RequestMapping(value="/show/{id}", method=GET)
 	public String show(@PathVariable long id, Model model){
 		Child child = repository.findOne(id);
 		model.addAttribute("child", child);
-		return "show";
+		return "children/show";
 	}
 }
