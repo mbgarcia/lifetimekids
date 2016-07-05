@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h1>New Event</h1>
-	<sf:form method="POST" action="/child/{id}/events/save" commandName="event">
+	<sf:form method="POST" action="/child/${event.child.id}/events/save" commandName="event">
 		<sf:errors path="*" element="div" cssClass="error"/>
 		<div>
 			<sf:label path="message" cssErrorClass="error">Message</sf:label> 

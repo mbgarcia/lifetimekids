@@ -27,6 +27,15 @@ public class Child {
 	@NotNull
 	public Date birthday;
 
+	public Child() {
+	}
+	
+	public Child(String id) {
+		if (id != null){
+			this.id = Long.valueOf(id);
+		}
+	}
+
 	public Long getId() {
 		return id;
 	}

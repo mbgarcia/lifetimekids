@@ -16,44 +16,52 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Event {
-  
-  @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
-  private Long id;
-  
-  @NotBlank
-  @Size(max=144)
-  private String message;
-  
-  @DateTimeFormat(pattern="dd/MM/yyyy")
-  @NotNull
-  public Date date;
-  
-  @ManyToOne
-  @JoinColumn(name="child_id", referencedColumnName="id")
-  private Child child;
 
-  public Long getId() {
-    return id;
-  }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+	@NotBlank
+	@Size(max = 144)
+	private String message;
 
-  public String getMessage() {
-    return message;
-  }
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@NotNull
+	public Date date;
 
-  public void setMessage(String message) {
-    this.message = message;
-  }
+	@ManyToOne
+	@JoinColumn(name = "child_id", referencedColumnName = "id")
+	private Child child;
 
-  public Date getDate() {
-    return date;
-  }
+	public Long getId() {
+		return id;
+	}
 
-  public void setDate(Date date) {
-    this.date = date;
-  }
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Child getChild() {
+		return child;
+	}
+
+	public void setChild(Child child) {
+		this.child = child;
+	}
 }

@@ -4,6 +4,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
@@ -28,7 +29,7 @@ public class EventControllerTest {
 	
 	@Mock
 	IEventRepository repository;
-	
+		
 	@Before
 	public void init(){
 		controller = new EventController();
@@ -69,5 +70,17 @@ public class EventControllerTest {
 		.andExpect(model().hasErrors())
 		.andExpect(model().attributeHasFieldErrors("event", "message", "date"))
 		.andExpect(view().name("events/form"));
+	}
+	
+	@Test
+	public void testSaveEventWithSuccess() throws Exception{
+		MockMvc mockMvc = standaloneSetup(controller).build();
+		
+		mockMvc.perform(
+				post("/child/1/events/save")
+				.param("message", "New Event")
+				.param("date", "01/01/2011")
+				)
+		.andExpect(redirectedUrl("/child/1/events"));
 	}	
 }

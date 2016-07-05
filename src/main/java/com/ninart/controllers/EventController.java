@@ -17,32 +17,40 @@ import com.ninart.models.Event;
 import com.ninart.repository.IEventRepository;
 
 @Controller
-@RequestMapping("/child/{id}/events")
+@RequestMapping("/child/{childId}/events")
 public class EventController {
 	
 	@Autowired
-	IEventRepository eventRepository;
+	IEventRepository repository;
+	
 	
 	@RequestMapping(method=GET)
-	public String list(@PathVariable String id, Model model){
-		Child child = new Child();
-		child.setId(Long.valueOf(id));
-		model.addAttribute("events", eventRepository.findByChild(child));
+	public String list(@PathVariable String childId, Model model){
+		Child child = new Child(childId);
+		model.addAttribute("events", repository.findByChild(child));
 		
 		return "events/index";
 	}
 	
 	@RequestMapping(value="/new", method=GET)
-	public String form(Model model){
-		model.addAttribute("event", new Event());
+	public String form(@PathVariable String childId, Model model){
+		Event event = new Event();
+		event.setChild(new Child(childId));
+
+		model.addAttribute("event", event);
+		
 		return "events/form";
 	}
 	
 	@RequestMapping(value="/save", method=POST)
-	public String save(@Valid Event event, Errors errors){
+	public String save(@PathVariable String childId, @Valid Event event, Errors errors){
 		if (errors.hasErrors()){
 			return "events/form"; 
 		}
-		return "";
+		
+		event.setChild(new Child(childId));
+		
+		repository.save(event);
+		return "redirect:/child/" + event.getChild().getId() + "/events";
 	}
 }
