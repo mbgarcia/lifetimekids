@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>LifetimeKids</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"></link>
+</head>
+<body>
+	<h1>Welcome to LifetimeKids</h1>
+
+	<h3>Eventos registrados</h3>
+	<li th:each="event: ${events}">
+		<div>
+			<a th:href="@{/child/} + ${event.child.id} + @{/event/show/} + ${event.id}" th:text="${event.message}">Message</a>
+			<span th:text="${event.date}">Date</span>
+		</div>
+	</li>
+</body>
+</html>

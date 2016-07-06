@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>LifetimeKids</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"></link>
+</head>
+<body>
+	<h1>New Event</h1>
+	<form method="POST" th:action="@{/child/} + ${event.child.id} + @{/events/save}" th:object="${event}">	
+		<div>
+			<label th:class="${#fields.hasErrors('message')}? 'error'">Message</label>
+			<input type="text" th:field="*{message}" th:class="${#fields.hasErrors('message')}? 'error'"></input>
+			<span th:if="${#fields.hasErrors('message')}" th:errors="*{message}">Error description</span>
+		</div>
+		
+		<div>
+			<label th:class="${#fields.hasErrors('date')}? 'error'">Data de nascimento</label>
+			<input type="text" th:field="*{date}" th:class="${#fields.hasErrors('date')}? 'error'"></input>
+			<span th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Error description</span>
+		</div>
+		
+		<input type="submit" value="Post"></input>
+	</form>
+</body>
+
+</html>

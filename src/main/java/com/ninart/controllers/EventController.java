@@ -43,13 +43,13 @@ public class EventController {
 	}
 	
 	@RequestMapping(value="/save", method=POST)
-	public String save(@PathVariable String childId, @Valid Event event, Errors errors){
+	public String save(@PathVariable String childId, @Valid Event event, Errors errors, Model model){
+		event.setChild(new Child(childId));
+		
 		if (errors.hasErrors()){
 			return "events/form"; 
 		}
-		
-		event.setChild(new Child(childId));
-		
+				
 		repository.save(event);
 		return "redirect:/child/" + event.getChild().getId() + "/events";
 	}

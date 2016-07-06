@@ -8,5 +8,5 @@ public class LifeTimeKidsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LifeTimeKidsApplication.class, args);
-	}
+	}	
 }
