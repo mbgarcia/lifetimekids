@@ -5,7 +5,7 @@
 </head>
 <body>
 	<h1>New Event</h1>
-	<form method="POST" th:action="@{/child/} + ${event.child.id} + @{/events/save}" th:object="${event}">	
+	<form method="POST" th:action="@{/child/} + ${event.child.id} + '/events/save'" th:object="${event}">	
 		<div>
 			<label th:class="${#fields.hasErrors('message')}? 'error'">Message</label>
 			<input type="text" th:field="*{message}" th:class="${#fields.hasErrors('message')}? 'error'"></input>
