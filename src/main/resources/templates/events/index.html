@@ -9,7 +9,7 @@
 	<h3>Eventos registrados</h3>
 	<li th:each="event: ${events}">
 		<div>
-			<a th:href="@{/child/} + ${event.child.id} + @{/event/show/} + ${event.id}" th:text="${event.message}">Message</a>
+			<a th:href="@{/child/} + ${event.child.id} + '/events/show/' + ${event.id}" th:text="${event.message}">Message</a>
 			<span th:text="${event.date}">Date</span>
 		</div>
 	</li>
