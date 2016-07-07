@@ -53,4 +53,10 @@ public class EventController {
 		repository.save(event);
 		return "redirect:/child/" + event.getChild().getId() + "/events";
 	}
+	
+	@RequestMapping(value="/show/{eventId}", method=GET)
+	public String show(@PathVariable long eventId, Model model){
+		model.addAttribute("event", repository.findOne(eventId));
+		return "events/show";
+	}
 }

@@ -82,5 +82,13 @@ public class EventControllerTest {
 				.param("date", "01/01/2011")
 				)
 		.andExpect(redirectedUrl("/child/1/events"));
-	}	
+	}
+	
+	@Test
+	public void testShowASingleEvent() throws Exception{
+		MockMvc mockMvc = standaloneSetup(controller).build();
+		
+		mockMvc.perform(get("/child/1/events/show/1"))
+		.andExpect(view().name("events/show"));
+	}
 }
