@@ -1,11 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-	<title>LifetimeKids</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"></link>
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:include="layout">
 <body>
-	<h1>Welcome to LifetimeKids</h1>
-
+<div th:fragment="content">
 	<h3>Eventos registrados</h3>
 	<li th:each="event: ${events}">
 		<div>
@@ -13,5 +8,6 @@
 			<span th:text="${event.date}">Date</span>
 		</div>
 	</li>
+</div>
 </body>
 </html>

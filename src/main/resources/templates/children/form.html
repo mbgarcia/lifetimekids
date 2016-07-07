@@ -1,9 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-	<title>LifetimeKids</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"></link>
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:include="layout">
 <body>
+<div th:fragment="content">
 	<h1>New Child</h1>
 	<form method="POST" th:action="@{/child/save}" th:object="${child}">	
 		<div>
@@ -19,7 +16,8 @@
 		</div>
 		
 		<input type="submit" value="Post"></input>
+		
 	</form>
+</div>
 </body>
-
 </html>

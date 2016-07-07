@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>LifetimeKids</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"></link>
+</head>
+
+<body>
+	<div>
+		<h1>Welcome to Lifetime Kids</h1>
+		<a th:href="@{/child}">Kids</a>
+	</div>
+	
+	<div th:include=":: content"></div>
+	
+  <div>
+		2016 Desenvolvido por Ninart  
+  </div>
+</body>
+
+</html>
