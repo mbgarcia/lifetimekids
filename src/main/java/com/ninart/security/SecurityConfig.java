@@ -22,14 +22,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception{
 		http
 		  .authorizeRequests()
-//		    .antMatchers("/child/**").hasRole("USER")
-		    .antMatchers("/**").permitAll()
+		    .antMatchers("/resources/**").permitAll()
+		    .antMatchers("/home").permitAll()
+		    .anyRequest().authenticated()
 		    
 		  .and()
 		  
-		  .formLogin();
-//		    .loginPage("/login")
-//		    .failureUrl("/login?error=true");
+		  .formLogin()
+		    .loginPage("/login")
+		    .permitAll()
+		  
+		  .and()
+		  
+		  .logout()
+		  	.permitAll();
 	}
 	
 	public void configure(AuthenticationManagerBuilder auth) throws Exception{
