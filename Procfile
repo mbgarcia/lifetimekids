@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar build/libs/lifetimekids.war
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/*.jar
