@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -13,6 +14,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
+@Table(name="user", schema="security")
 public class User implements UserDetails{
 	private static final long serialVersionUID = 175975939937615248L;
 
@@ -26,6 +28,7 @@ public class User implements UserDetails{
 	private String fullname;
 	
 	@NotBlank
+	@Size(max=40)
 	private String password;
 
 	public String getUsername() {
