@@ -36,9 +36,7 @@ dependencies {
 	
 	runtime 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	
-	testCompile 'org.springframework.boot:spring-boot-starter-test'
-	
-	compile "org.flywaydb:flyway-core:4.0.3"
+	testCompile 'org.springframework.boot:spring-boot-starter-test'	
 }
 
 

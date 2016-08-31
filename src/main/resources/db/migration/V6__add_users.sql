@@ -1,2 +1,0 @@
-insert into security.user (username, fullname, password) values ('admin@mail.com', 'Administrator', 'admin');
-insert into security.user (username, fullname, password) values ('guest@mail.com', 'Guest User'   , 'guest');

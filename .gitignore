@@ -6,3 +6,5 @@ bin/
 build/
 target
 .DS_Store
+migrations/environments/development.properties
+migrations/environments/production.properties
