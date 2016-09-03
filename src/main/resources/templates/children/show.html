@@ -6,6 +6,9 @@
 		<span th:text="${child.name}">    Name    </span>
 		<span th:text="${child.birthday}">Birthday</span>
 	</div>
+	<div>
+		<a th:href="${child.id} + @{/events}" > Exibir eventos</a>
+	</div>
 </div>
 </body>
 </html>

@@ -10,7 +10,7 @@
 		</div>
 		
 		<div>
-			<label th:class="${#fields.hasErrors('date')}? 'error'">Data de nascimento</label>
+			<label th:class="${#fields.hasErrors('date')}? 'error'">Data do evento</label>
 			<input type="text" th:field="*{date}" th:class="${#fields.hasErrors('date')}? 'error'"></input>
 			<span th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Error description</span>
 		</div>

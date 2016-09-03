@@ -4,10 +4,13 @@
 	<h3>Crianças cadastradas</h3>
 	<li th:each="child: ${children}">
 		<div>
-			<a th:href="@{/child/show/} + ${child.id}" th:text="${child.name}">Name</a>
+			<a th:href="@{/child/} + ${child.id}" th:text="${child.name}">Name</a>
 			<span th:text="${child.birthday}">Birthday</span>
 		</div>
 	</li>
+	<div>
+		<a th:href="@{/child/new}">Novo</a>
+	</div>
 </div>
 </body>
 </html>

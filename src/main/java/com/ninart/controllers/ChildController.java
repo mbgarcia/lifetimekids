@@ -43,7 +43,7 @@ public class ChildController {
 		return "children/form";
 	}
 	
-	@RequestMapping(value="/show/{id}", method=GET)
+	@RequestMapping(value="/{id}", method=GET)
 	public String show(@PathVariable long id, Model model){
 		Child child = repository.findOne(id);
 		model.addAttribute("child", child);
