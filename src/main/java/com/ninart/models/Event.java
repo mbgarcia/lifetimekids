@@ -21,7 +21,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Event {
 
 	@Id
-	@SequenceGenerator(name="seq_event", sequenceName="domain.seq_event")
+	@SequenceGenerator(name="seq_event", sequenceName="domain.seq_event", allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_event")
 	private Long id;
 
