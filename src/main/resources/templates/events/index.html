@@ -5,7 +5,7 @@
 	<li th:each="event: ${events}">
 		<div>
 			<a th:href="@{/child/} + ${event.child.id} + '/events/show/' + ${event.id}" th:text="${event.message}">Message</a>
-			<span th:text="${event.date}">Date</span>
+			<span th:text="${#dates.format(event.date, 'dd-MM-yyyy')}">Date</span>
 		</div>
 	</li>
 	

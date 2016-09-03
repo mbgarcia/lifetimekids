@@ -4,7 +4,7 @@
 	<h3>Evento cadastrado</h3>
 	<div>
 		<span th:text="${event.message}">Message</span>
-		<span th:text="${event.date}">Data</span>
+		<span th:text="${#dates.format(event.date, 'dd-MM-YYYY')}">Data</span>
 	</div>
 </div>
 </body>

@@ -5,7 +5,7 @@
 	<li th:each="child: ${children}">
 		<div>
 			<a th:href="@{/child/} + ${child.id}" th:text="${child.name}">Name</a>
-			<span th:text="${child.birthday}">Birthday</span>
+			<span th:text="${#dates.format(child.birthday, 'dd-MM-yyyy')}">Birthday</span>
 		</div>
 	</li>
 	<div>
