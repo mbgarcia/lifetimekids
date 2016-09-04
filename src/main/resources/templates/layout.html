@@ -2,13 +2,20 @@
 
 <head>
 	<title>LifetimeKids</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/resources/style.css}"></link>
+	<link rel="stylesheet" type="text/css" href="/resources/style.css"></link>
+	<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap-theme.min.css"></link>
+	<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css"></link>
+	
+	<script type="text/javascript" src="/resources/js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 	<div>
 		<h1>Welcome to Lifetime Kids</h1>
-		<a th:href="@{/child}">Kids</a>
+		<ul class="nav nav-pills">
+  		<li role="presentation" class="active"><a th:href="@{/child}">Kids</a></li>
+  	</ul>
 	</div>
 	
 	<div th:include=":: content"></div>

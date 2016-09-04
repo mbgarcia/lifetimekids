@@ -2,15 +2,23 @@
 <body>
 <div th:fragment="content">
 	<h3>Eventos registrados</h3>
-	<li th:each="event: ${events}">
-		<div>
-			<a th:href="@{/child/} + ${event.child.id} + '/events/show/' + ${event.id}" th:text="${event.message}">Message</a>
-			<span th:text="${#dates.format(event.date, 'dd-MM-yyyy')}">Date</span>
-		</div>
-	</li>
+	<table class="table">
+		<thead>
+			<td>Evento</td>
+			<td>Data</td>
+		</thead>
+		<tr th:each="event: ${events}">
+			<td>
+				<a th:href="@{/child/} + ${event.child.id} + '/events/show/' + ${event.id}" th:text="${event.message}">Message</a>
+			</td>
+			<td>
+				<span th:text="${#dates.format(event.date, 'dd-MM-yyyy')}">Date</span>
+			</td>
+		</tr>
+	</table>
 	
 	<div>
-		<a th:href="@{events/new}">Novo</a>
+		<a class="btn btn-primary" th:href="@{events/new}">Novo</a>
 	</div>	
 </div>
 </body>

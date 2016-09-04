@@ -3,11 +3,15 @@
 <div th:fragment="content">
 	<h3>Criança cadastrada</h3>
 	<div>
-		<span th:text="${child.name}">    Name    </span>
-		<span th:text="${#dates.format(child.birthday, 'dd-MM-yyyy')}">Birthday</span>
+		<span class="col-sm-2">Nome</span>
+		<span class="col-sm-10" th:text="${child.name}">    Name    </span>
 	</div>
 	<div>
-		<a th:href="${child.id} + @{/events}" > Exibir eventos</a>
+		<span class="col-sm-2">Data de nascimento</span>
+		<span class="col-sm-10" th:text="${#dates.format(child.birthday, 'dd-MM-yyyy')}">Birthday</span>
+	</div>
+	<div>
+		<a class="btn btn-primary" th:href="${child.id} + @{/events}" > Exibir eventos</a>
 	</div>
 </div>
 </body>
