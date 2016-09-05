@@ -2,20 +2,26 @@
 <body>
 <div th:fragment="content">
 	<h3>Crianças cadastradas</h3>
-	<table class="table">
-		<thead>
-			<td>Nome</td>
-			<td>Data de nascimento</td>
-		</thead>
-		<tr th:each="child: ${children}">
-			<td>
-				<a th:href="@{/child/} + ${child.id}" th:text="${child.name}">Name</a>
-			</td>
-			<td>
-				<span th:text="${#dates.format(child.birthday, 'dd-MM-yyyy')}">Birthday</span>
-			</td>
-		</tr>
-	</table>
+	
+  <div>
+	  <table class="table">
+	    <thead>
+	      <tr>
+	        <td>Nome</td>
+	        <td>Data de nascimento</td>
+	      </tr>
+	    </thead>
+			<tr th:each="child: ${children}">
+				<td>
+					<a th:href="@{/child/} + ${child.id}" th:text="${child.name}">Name</a>
+				</td>
+				<td>
+					<span th:text="${#dates.format(child.birthday, 'dd-MM-yyyy')}">Birthday</span>
+				</td>
+			</tr>
+		</table>
+  </div>
+	
 	<div>
 		<a class="btn btn-primary" th:href="@{/child/new}">Novo</a>
 	</div>
