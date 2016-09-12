@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:include="layout">
+<body>
+<div th:fragment="content">
+	<h3>Medidas da criança</h3>
+	
+	<div>
+		<table class="table">
+			<thead>
+				<tr>
+					<td>Data</td>
+					<td>Peso</td>
+					<td>Altura</td>
+				</tr>
+			</thead>
+			<tr th:each="measure: ${measures}">
+				<td>
+					<span th:text="${#dates.format(measure.date, 'dd-MM-yyyy')}">Date</span>
+				</td>
+				<td>
+					<a th:href="@{/child/} + ${measure.child.id} + '/measures/show/' + ${measure.id}" th:text="${measure.height}">Height</a>
+				</td>
+				<td>
+					<a th:href="@{/child/} + ${measure.child.id} + '/measures/show/' + ${measure.id}" th:text="${measure.weight}">Weight</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div>
+		<a class="btn btn-primary" th:href="@{measures/new}">Novo</a>
+	</div>	
+</div>
+</body>
+</html>

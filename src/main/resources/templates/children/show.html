@@ -11,7 +11,8 @@
 		<span class="col-sm-10" th:text="${#dates.format(child.birthday, 'dd-MM-yyyy')}">Birthday</span>
 	</div>
 	<div>
-		<a class="btn btn-primary" th:href="${child.id} + @{/events}" > Exibir eventos</a>
+		<a class="btn btn-primary" th:href="${child.id} + @{/events}" > Eventos</a>
+		<a class="btn btn-primary" th:href="${child.id} + @{/measures}" > Medidas</a>
 	</div>
 </div>
 </body>
