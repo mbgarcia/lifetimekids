@@ -16,7 +16,7 @@ LifetimeKids está sendo desenvolvido com:
 * SpringToolSuite (STS)
 * Twitter Bootstrap
 
-Além disso, a idéia é desenvolver utilizando TDD. Para isso, adotou-se o framework de testes do próprio Spring.
+Além disso, a idéia é desenvolver utilizando TDD através do framework de testes do próprio Spring.
 
 ### Parametrizando a conexao com o banco de dados.
     
