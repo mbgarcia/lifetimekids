@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -31,6 +33,7 @@ public class Event {
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@NotNull
+	@Temporal(TemporalType.DATE)
 	public Date date;
 
 	@ManyToOne

@@ -3,7 +3,7 @@
 
 CREATE TABLE domain.child
 (
-  id            integer     NOT NULL,
+  id            bigint      NOT NULL,
   name          varchar(40) NOT NULL,
   birthday      date        NOT NULL,
 

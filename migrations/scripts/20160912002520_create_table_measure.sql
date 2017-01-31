@@ -3,11 +3,11 @@
 
 CREATE TABLE domain.measure
 (
-  id            integer      NOT NULL,
+  id            bigint       NOT NULL,
   height        decimal(5,2)         ,
   weight        decimal(5,2)         ,
   "date"        date         NOT NULL,
-  child_id      integer      NOT NULL,
+  child_id      bigint       NOT NULL,
   
   CONSTRAINT measure_pkey PRIMARY KEY (id),
   CONSTRAINT fk1_measure FOREIGN KEY (child_id)

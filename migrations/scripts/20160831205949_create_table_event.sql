@@ -3,10 +3,10 @@
 
 CREATE TABLE domain.event
 (
-  id            integer      NOT NULL,
+  id            bigint       NOT NULL,
   message       varchar(144) NOT NULL,
   "date"        date         NOT NULL,
-  child_id      integer      NOT NULL,
+  child_id      bigint       NOT NULL,
   
   CONSTRAINT event_pkey PRIMARY KEY (id),
   CONSTRAINT fk1_event FOREIGN KEY (child_id)
